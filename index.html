@@ -7665,7 +7665,7 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <font size="4">
 <blockquote>
-<p>注 ：以下操作旨在对数据进行预处理（包括缺失值的处理，复合列元素的拆分）和初步的数据探索</p>
+<p><strong>注 ：以下操作旨在对数据进行预处理（包括缺失值的处理，复合列元素的拆分）和初步的数据探索</strong></p>
 </blockquote>
 </font></div>
 </div>
@@ -8789,7 +8789,10 @@ dtype: int64
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <font size="4">
-<p>由 Figure4 中联合分布的高斯核密度估计曲线能够直观的感受到男女的在睡眠上的<strong>微小差异性</strong>（睡眠指标：睡眠时间和睡眠平均心率），对本数据而言
+<blockquote>
+<p><strong>注： Figure 4 中心的曲线为等距等高线，数据越集中时“山峰”越高，等距等高线越密集；边缘的曲线为高斯核密度估计曲线（Kernel Density Estimation，KDE），用于传达变量的边缘分布信息。</strong></p>
+</blockquote>
+<p>由Figure 4 中的信息能直观地感受到男女在睡眠特征上的<strong>微小差异性</strong>（睡眠指标：睡眠时间和睡眠平均心率），对本数据而言
 <strong>男性睡眠时的平均心率分布主要集中在68-72之间，而女性则是更加偏低主要分布在65-68之间</strong></p>
 </font></div>
 </div>
@@ -8909,7 +8912,7 @@ dtype: int64
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <font size="4">
-<p>Figure 6  直观展示了心率与压力水平的正相关关系：压力水平较高的人群往往拥有更高的睡眠心率；Figure 7 能直观感受到其分布的区间</p>
+<p>Figure 6  直观展示了心率与压力水平的正相关关系：压力水平较高的人群往往拥有更高的睡眠心率；Figure 7 能直观感受到其分布的区间，其细尾部分可以认为是异常数据。</p>
 </font></div>
 </div>
 </div>
@@ -9255,6 +9258,9 @@ dtype: int64
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <font size="4">
+<blockquote>
+<p><strong>注： 由于假设检验的总体具有惰性，假设检验结果倾向于支持原假设（null hypothesis）$H_0$，即使在面对证据表明备择假设（alternative hypothesis）$H_1$可能更合理的情况下</strong>。故而选取以下假设</p>
+</blockquote>
 <p>原假设$H_0$  :  男女睡眠没有明显差异 ，$\mu_1 = \mu_2$；备选假设$H_1$  : 男女睡眠有明显差异 ,$\mu_1 \neq  \mu_2$;显著性水平$\alpha = 0.05$(默认国际标准)</p>
 </font></div>
 </div>
@@ -9323,9 +9329,11 @@ dtype: int64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<font size="4.5">
+<p>选取统计量: $$T = \frac{\overline{X} - \mu }{S}\sqrt{n} \sim t(n-1)$$</p>
 <font size="4">
-<p>上图为t检验示意图，其中红色区域即为拒绝域，单边区域面积为:$\alpha / 2 = 0.025$</p>
-</font></div>
+<p>上图为t检验示意图，其中红色区域即为$H_0$的拒绝域${\mathfrak{H} _{0} = \{ |T|&gt; t_{1-\frac{\alpha}{2}} \} }$，单边区域面积为:$\alpha / 2 = 0.025$</p>
+</font></font></div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7c747514">
@@ -9368,7 +9376,7 @@ P-value: 0.01866885927060746
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <font size="4">
-<p>独立两样本t检验的结果揭示了男性和女性在睡眠时长上存在统计学上的显著差异 $（t = -2.36, p = 0.0187 ,\alpha=0.05,p&lt;\alpha / 2）$则统计量处于拒绝域当中.这表明有证据拒绝零假设$ H_0 $，暗示两个性别之间在睡眠时长上存在差异。具体来说，男性平均睡眠时长比女性短，这在数据集中得到了体现。负的t统计量意味着这种差异，其大小表明了这种差异相对于睡眠时长数据变异性的强度。总体而言，这些发现突出了男性和女性在睡眠模式上的显著差异，强调了可能与性别相关的对睡眠行为的影响。此假设决策对于产品的设计尤为关键。</p>
+<p>独立两样本t检验的结果揭示了男性和女性在睡眠时长上存在统计学上的显著差异 $（T = -2.36, p = 0.0187 ,\alpha=0.05,p&lt;\alpha / 2）$则统计量处于拒绝域当中.这表明有证据拒绝零假设$ H_0 $，暗示两个性别之间在睡眠时长上存在差异。具体来说，男性平均睡眠时长比女性短，这在数据集中得到了体现。负的t统计量意味着这种差异，其大小表明了这种差异相对于睡眠时长数据变异性的强度。总体而言，这些发现突出了男性和女性在睡眠模式上的显著差异，强调了可能与性别相关的对睡眠行为的影响。此假设决策对于产品的设计尤为关键。</p>
 </font></div>
 </div>
 </div>
